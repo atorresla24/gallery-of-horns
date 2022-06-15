@@ -74,6 +74,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 Est. time needed to complete: 3 hours
 
-Start time: 5pm
+Start time: 5pm EST
 Finish time: 
 Actual time needed to complete:
