@@ -14,7 +14,8 @@ class App extends React.Component {
       showModal: false,
       selectedBeast: '',
       selectedBeastImg: '',
-      beastDescription: ''
+      beastDescription: '',
+      sort:''
     };
   };
 
@@ -33,6 +34,19 @@ class App extends React.Component {
     });
   };
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    let selected = event.target.selected.value;
+    this.setState({
+      sort: selected
+    });
+  };
+
+  handleSelect = event => {
+    let selected = event.target.value;  
+    console.log(selected);
+  }
+
   render(){
     return (
       <>
@@ -42,10 +56,17 @@ class App extends React.Component {
         data={data}
         handleOnShow={this.handleOnShow}
         />
-        <form>
-          <label>
-            <input type="text" name="title"/>
-          </label>
+        <form onSubmit={this.handleSubmit}>
+          <fieldset>
+            <legend>Horns Selected</legend>
+            <select name ="selected" onChange={this.handleSelect}>
+              <option value="1">One</option>
+              <option value="2">Two</option>
+              <option value="3">Three</option>
+              <option value="100">100</option>
+            </select>
+          </fieldset>
+          <button type="submit">Submit</button>
         </form>
         <Footer/>
         <Modal show={this.state.showModal}

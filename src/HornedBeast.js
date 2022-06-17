@@ -29,7 +29,6 @@ class HornedBeast extends React.Component{
         <img src={this.props.image_url} alt={this.props.keyword} title={this.props.title}/>
         <p>{this.props.description}</p>
         <Button>Bootstrap button</Button>
-        <button>Plain html button</button>
       </article>
     )
   }
