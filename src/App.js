@@ -5,6 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import data from './data.json';
 import './App.css';
 import React from 'react';
+//import ListGroup from 'react-bootstrap/ListGroup'
 
 class App extends React.Component {
   constructor(props) {
@@ -15,7 +16,8 @@ class App extends React.Component {
       selectedBeast: '',
       selectedBeastImg: '',
       beastDescription: '',
-      sort:''
+      sort:'',
+      sorted: data
     };
   };
 
@@ -42,9 +44,34 @@ class App extends React.Component {
     });
   };
 
-  handleSelect = event => {
+  handleSelect = (event) => {
     let selected = event.target.value;  
     console.log(selected);
+    if (selected === "1") {
+      let oneHorn = data.filter(data => data.horns === 1);
+      this.setState({
+        sorted: oneHorn
+      })
+    } else if (selected === "2"){
+      let twoHorns = data.filter(data => data.horns === 2);
+      this.setState({
+        sorted:twoHorns
+      })
+    } else if (selected === "3"){
+      let threeHorns = data.filter(data => data.horns === 3);
+      this.setState({
+        sorted: threeHorns
+      })
+    } else if (selected === "100"){
+      let hundredHorns = data.filter(data => data.horns === 100);
+      this.setState({
+        sorted: hundredHorns
+    })
+    } else if (selected === "All"){
+      this.setState({
+        sorted: data
+      })
+    }
   }
 
   render(){
@@ -53,7 +80,7 @@ class App extends React.Component {
         <Header
         />
         <Main
-        data={data}
+        data = {this.state.sorted}
         handleOnShow={this.handleOnShow}
         />
         <form onSubmit={this.handleSubmit}>
@@ -64,6 +91,7 @@ class App extends React.Component {
               <option value="2">Two</option>
               <option value="3">Three</option>
               <option value="100">100</option>
+              <option value="All">All</option>
             </select>
           </fieldset>
           <button type="submit">Submit</button>
