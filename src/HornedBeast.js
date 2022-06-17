@@ -24,7 +24,9 @@ class HornedBeast extends React.Component{
   render(){
     return(
       <article>
-        <id>{this.props._id}</id>
+        <id>{this.props._id} </id>
+        <p>{this.state.likes} Likes </p> 
+        <p onClick={this.handleLikes}> 💖 </p>
         <h2 onClick={this.handleHeadLineClick}>{this.props.title}</h2>
         <img src={this.props.image_url} alt={this.props.keyword} title={this.props.title}/>
         <p>{this.props.description}</p>
