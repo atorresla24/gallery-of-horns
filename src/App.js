@@ -13,7 +13,8 @@ class App extends React.Component {
       heart: '',
       showModal: false,
       selectedBeast: '',
-      selectedBeastImg: ''
+      selectedBeastImg: '',
+      beastDescription: ''
     };
   };
 
@@ -23,11 +24,12 @@ class App extends React.Component {
     });
   };
 
-  handleOnShow = (title, image_url) => {
+  handleOnShow = (title, image_url, description) => {
     this.setState({
       showModal: true,
       selectedBeast: title,
-      selectedBeastImg: image_url
+      selectedBeastImg: image_url,
+      beastDescription: description
     });
   };
 
@@ -40,6 +42,11 @@ class App extends React.Component {
         data={data}
         handleOnShow={this.handleOnShow}
         />
+        <form>
+          <label>
+            <input type="text" name="title"/>
+          </label>
+        </form>
         <Footer/>
         <Modal show={this.state.showModal}
         onHide={this.handleOnHide} style = {{width: '100%'}}>
@@ -48,6 +55,7 @@ class App extends React.Component {
         </Modal.Header>
         <Modal.Body>
           <img className = 'img-fluid' src={this.state.selectedBeastImg} alt={this.state.selectedBeast}/>
+          <p>{this.state.beastDescription}</p>
         </Modal.Body>
         </Modal>
       </>

@@ -18,7 +18,7 @@ class HornedBeast extends React.Component{
   }
 
   handleHeadLineClick = () => {
-    this.props.handleOnShow(this.props.title, this.props.image_url);
+    this.props.handleOnShow(this.props.title, this.props.image_url, this.props.description);
   }
 
   render(){
