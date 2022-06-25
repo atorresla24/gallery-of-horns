@@ -1,7 +1,7 @@
 import Header from './Header.js';
 import Main from './Main.js';
 import Footer from './Footer.js';
-import Modal from 'react-bootstrap/Modal';
+import SelectedBeast from './SelectedBeast';
 import data from './data.json';
 import './App.css';
 import React from 'react';
@@ -11,8 +11,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state={
-      heart: '',
       showModal: false,
+      heart: '',
       selectedBeast: '',
       selectedBeastImg: '',
       beastDescription: '',
@@ -97,7 +97,14 @@ class App extends React.Component {
           <button type="submit">Submit</button>
         </form>
         <Footer/>
-        <Modal show={this.state.showModal}
+        <SelectedBeast
+        handleShow = {this.state.showModal}
+        handleOnHide = {this.handleOnHide}
+        selectedBeast = {this.state.selectedBeast}
+        selectedBeastImg = {this.state.selectedBeastImg}
+        beastDescription = {this.state.beastDescription}
+       /> 
+        {/* <Modal show={this.state.showModal}
         onHide={this.handleOnHide} style = {{width: '100%'}}>
           <Modal.Header closeButton>
           <Modal.Title>{this.state.selectedBeast}</Modal.Title>
@@ -106,7 +113,7 @@ class App extends React.Component {
           <img className = 'img-fluid' src={this.state.selectedBeastImg} alt={this.state.selectedBeast}/>
           <p>{this.state.beastDescription}</p>
         </Modal.Body>
-        </Modal>
+        </Modal> */}
       </>
     );
   }
