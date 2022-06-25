@@ -26,11 +26,11 @@ class HornedBeast extends React.Component{
       <article>
         <id>{this.props._id} </id>
         <p>{this.state.likes} Likes </p> 
-        <p onClick={this.handleLikes}> 💖 </p>
+        <p> 💖 </p>
         <h2 onClick={this.handleHeadLineClick}>{this.props.title}</h2>
         <img src={this.props.image_url} alt={this.props.keyword} title={this.props.title}/>
         <p>{this.props.description}</p>
-        <Button>Bootstrap button</Button>
+        <Button onClick={this.handleLikes}>Like it!</Button>
       </article>
     )
   }
